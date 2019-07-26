@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 class Draww extends StatefulWidget {
@@ -7,6 +8,7 @@ class Draww extends StatefulWidget {
 
 class _DrawwState extends State<Draww> 
 {
+ 
   @override
   Widget build(BuildContext context)
    {
@@ -24,7 +26,7 @@ class _DrawwState extends State<Draww>
         children: <Widget>[
         _user('gio','gio@gmail.com',AssetImage('src/images/profile.png'),AssetImage('src/images/solo.png')),
         _barra('Inicio',Icon(Icons.home,color: Colors.pinkAccent,)),
-        _barra('Vender',Icon(Icons.monetization_on,color: Colors.green,)),
+       _barra('Vender',Icon(Icons.monetization_on,color: Colors.green,)),
         _barra('Comprar',Icon(Icons.shop,color: Colors.black12,)),
         _barra('Perfil',Icon(Icons.account_circle,color: Colors.blueAccent,)),
          Divider(),
@@ -36,15 +38,18 @@ class _DrawwState extends State<Draww>
     );
   }
 }
+
   Widget _barra(String texto, Icon icono)
   {
     return ListTile(
+      onTap: (){},
       title: Text(texto),
       trailing: icono,
     );
   }
   Widget _user(String email, String usuario,AssetImage perfilPrincipal,AssetImage usuarioFondo)
   {
+     String networkImage='https://cdn.pixabay.com/photo/2012/08/27/14/19/evening-55067_960_720.png';
     return UserAccountsDrawerHeader( 
 
             accountEmail: Text(email),
@@ -63,8 +68,14 @@ class _DrawwState extends State<Draww>
             decoration: BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                image: NetworkImage('https://cdn.pixabay.com/photo/2012/08/27/14/19/evening-55067_960_720.png'),
+                image: NetworkImage(networkImage),
               ),
             ),
           );
   }
+  /*ListTile(
+          title: Text('fisrt'),
+          trailing: Icon(Icons.home),
+          onTap: ()=>Navigator.of(context).push(MaterialPageRoute(
+            builder:(BuildContext context)=>Otras('primera'))),
+        ),*/
